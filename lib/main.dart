@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:calc/widgets/calculator_button_grid.dart';
+import 'package:calc/widgets/calculator_display.dart';
+
 const String APP_NAME = "FCalculator";
 void main() {
   runApp(const MainApp());
@@ -44,13 +47,15 @@ class MainApp extends StatelessWidget {
           ],
         ),
 
-        body: SizedBox(
-          width: double.infinity,
-          height: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
-          ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          spacing: 5.0,
+          children: [
+            Expanded(flex: 5, child: CalculatorDisplay()),
+            SizedBox(height: 10),
+            Expanded(flex: 9, child: CalculatorButtonGrid()),
+          ],
         ),
       ),
     );
